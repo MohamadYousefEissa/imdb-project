@@ -21,12 +21,12 @@ const search = (ev) => {
 
 <style scoped>
 input {
-  width: 30%;
   outline: 0;
-  border: 1px solid blue;
-  border-radius: 10px;
+  border: 1px solid black;
+  border-radius: 6px;
   height: 45px;
   padding: 0 10px;
   font-size: 14px;
+  background: transparent;
 }
 </style>

@@ -1,4 +1,6 @@
 export default {
-  films: [],
-  to: null
+  shows: [],
+  searchTimeOut: null,
+  showMenu: false,
+  showLoader: false
 }
