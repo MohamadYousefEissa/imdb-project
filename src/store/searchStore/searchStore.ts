@@ -1,12 +1,8 @@
 import { defineStore } from 'pinia'
+import state from './state'
 import axios from 'axios'
 export const searchStore = defineStore('search', {
-  state: () => ({
-    shows: [] as {}[],
-    searchTimeOut: null as any,
-    showMenu: false,
-    showLoader: false
-  }),
+  state,
   actions: {
     search(payload: { title: string }) {
       this.showMenu = true

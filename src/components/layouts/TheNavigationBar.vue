@@ -17,7 +17,9 @@ const search = (ev) => {
       <div class="container p-0">
         <div class="row">
           <div class="col d-flex justify-content-between align-items-center">
-            <h1>logo</h1>
+            <RouterLink to="/">
+              <h1>logo</h1>
+            </RouterLink>
             <div class="d-flex flex-column" id="dd-cont">
               <BaseInput :placeholder="'What do you think ...'" @input-event="search" />
               <div class="position-relative">

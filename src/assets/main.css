@@ -1,4 +1,13 @@
 body {
   height: 100vh;
   color: #fff;
+  background: #111;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+  outline: 0;
+}
+li {
+  list-style: none;
 }
