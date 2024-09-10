@@ -12,9 +12,9 @@ export default () =>
     boxoffice: null,
     stars: null,
     rate: null
-  }) as State
+  }) as Data
 
-interface State {
+interface Data {
   title: string | null
   year: string | null
   rated: string | null

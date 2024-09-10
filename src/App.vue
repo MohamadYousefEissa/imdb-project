@@ -1,7 +1,7 @@
 <template>
-  <TheNavigationBar />
+  <TheHeader />
   <RouterView />
 </template>
 <script setup>
-import TheNavigationBar from './components/layouts/TheNavigationBar.vue'
+import TheHeader from './components/layouts/TheHeader.vue'
 </script>

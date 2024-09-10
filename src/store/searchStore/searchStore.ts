@@ -25,6 +25,7 @@ export const searchStore = defineStore('search', {
             }
           })
           .catch((err) => {
+            console.log(err.message)
             throw new Error(err)
           })
       }, 1000)

@@ -1,5 +1,6 @@
 <script setup>
-import { defineProps, defineEmits } from 'vue'
+import { defineProps, defineEmits, ref } from 'vue'
+const searchInput = ref()
 defineProps({
   placeholder: String
 })
@@ -15,7 +16,8 @@ const search = (ev) => {
     id="search-input"
     :placeholder="placeholder"
     autocomplete="off"
-    @input="search"
+    v-model="searchInput"
+    @input="search(searchInput)"
   />
 </template>
 

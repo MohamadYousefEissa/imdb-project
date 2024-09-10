@@ -3,8 +3,8 @@ import BaseInput from '../UI/BaseInput.vue'
 import BaseDropDown from '../UI/BaseDropDown.vue'
 import { searchStore } from '@/store/searchStore/searchStore'
 const store = searchStore()
-const search = (ev) => {
-  if (ev.target.value.length > 0) store.search({ title: ev.target.value })
+const search = (value) => {
+  if (value.length > 0) store.search({ title: value })
   else {
     store.showMenu = false
     store.shows = []

@@ -1,22 +1,19 @@
-<script setup>
+<script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { searchStore } from '@/store/searchStore/searchStore'
 
 import BaseCard from './BaseCard.vue'
 import BaseLoader from '../icons/BaseLoader.vue'
 const store = searchStore()
-const dropdown = ref()
 onMounted(() => {
-  const dropdownCont = document.getElementById('dd-cont')
-  const searchInput = document.getElementById('search-input')
-  document.body.addEventListener('click', (ev) => {
-    if (!dropdownCont.contains(ev.target)) {
-      store.showMenu = false
-    } else {
-      if (searchInput.value.length > 0 && !store.showMenu) store.showMenu = true
-      else {
-        searchInput.value = ''
+  const dropdownCont = document.getElementById('dd-cont')! as HTMLElement
+  const searchInput = document.getElementById('search-input') as HTMLInputElement
+  document.body.addEventListener('click', (ev: Event) => {
+    if (ev.target) {
+      if (!dropdownCont.contains(ev.target)) {
         store.showMenu = false
+      } else {
+        if (searchInput.value.length > 0 && !store.showMenu) store.showMenu = true
       }
     }
   })
@@ -24,7 +21,7 @@ onMounted(() => {
 </script>
 <template>
   <div class="dropdown">
-    <ul class="dropdown-menu dropdown-menu-dark" ref="dropdown" :class="{ show: store.showMenu }">
+    <ul class="dropdown-menu dropdown-menu-dark" :class="{ show: store.showMenu }">
       <li class="d-flex justify-content-center mt-5 pb-5" v-if="store.showLoader">
         <BaseLoader />
       </li>

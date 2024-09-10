@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { searchStore } from '../searchStore/searchStore'
 import axios from 'axios'
 import state from './state'
 export const filmDetails = defineStore('film details', {
@@ -25,6 +26,9 @@ export const filmDetails = defineStore('film details', {
           this.boxoffice = res.data.BoxOffice
           this.stars = res.data.Actors
           this.rate = res.data.imdbRating
+          searchStore().showMenu = false
+          const searchInput = document.querySelector('#search-input') as HTMLInputElement
+          searchInput.value = this.title as string
         })
     }
   },
