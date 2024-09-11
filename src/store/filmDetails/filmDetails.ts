@@ -6,6 +6,7 @@ export const filmDetails = defineStore('film details', {
   state,
   actions: {
     async fetchFilm(id: string) {
+      this.isFetch = false
       await axios
         .get('http://www.omdbapi.com/', {
           params: {
@@ -14,6 +15,7 @@ export const filmDetails = defineStore('film details', {
           }
         })
         .then((res) => {
+          this.isFetch = true
           this.title = res.data.Title
           this.year = res.data.Year
           this.rated = res.data.Rated

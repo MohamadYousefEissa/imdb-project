@@ -24,11 +24,10 @@ const search = (ev) => {
 <style scoped>
 input {
   outline: 0;
-  border: 1px solid black;
+  border: 0;
   border-radius: 6px;
-  height: 45px;
-  padding: 0 10px;
+  padding: 10px 10px;
   font-size: 14px;
-  background: transparent;
+  background-color: var(--main-color);
 }
 </style>

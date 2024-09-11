@@ -1,11 +1,27 @@
+:root {
+  --nav-bg: #121212;
+  --body-bg: #000;
+  --main-color: #fff;
+  --main-bg: #1f1f1f;
+  --dw-scrollbar-color: #3b3b3b;
+}
+
+html[data-theme='light'] {
+  --nav-bg: transparent;
+  --body-bg: #f0f0f0;
+  --main-color: #fff;
+  --main-bg: #fff;
+  --dw-scrollbar-color: #dadada;
+}
+
 body {
   height: 100vh;
-  color: #fff;
-  background: #111;
+  color: var(--main-color);
+  background: var(--body-bg);
 }
 a {
   text-decoration: none;
-  color: #fff;
+  color: var(--main-color);
   outline: 0;
 }
 li {

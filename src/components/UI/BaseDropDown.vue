@@ -1,19 +1,21 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted } from 'vue'
 import { searchStore } from '@/store/searchStore/searchStore'
+import { themeStore } from '@/store/themeHandler'
 
 import BaseCard from './BaseCard.vue'
 import BaseLoader from '../icons/BaseLoader.vue'
-const store = searchStore()
+const storeSearch = searchStore()
+const storeTheme = themeStore()
 onMounted(() => {
   const dropdownCont = document.getElementById('dd-cont')! as HTMLElement
   const searchInput = document.getElementById('search-input') as HTMLInputElement
   document.body.addEventListener('click', (ev: Event) => {
     if (ev.target) {
       if (!dropdownCont.contains(ev.target)) {
-        store.showMenu = false
+        storeSearch.showMenu = false
       } else {
-        if (searchInput.value.length > 0 && !store.showMenu) store.showMenu = true
+        if (searchInput.value.length > 0 && !storeSearch.showMenu) storeSearch.showMenu = true
       }
     }
   })
@@ -21,12 +23,15 @@ onMounted(() => {
 </script>
 <template>
   <div class="dropdown">
-    <ul class="dropdown-menu dropdown-menu-dark" :class="{ show: store.showMenu }">
-      <li class="d-flex justify-content-center mt-5 pb-5" v-if="store.showLoader">
+    <ul
+      class="dropdown-menu"
+      :class="{ show: storeSearch.showMenu, 'dropdown-menu-dark': storeTheme.theme === 'dark' }"
+    >
+      <li class="d-flex justify-content-center mt-5 pb-5" v-if="storeSearch.showLoader">
         <BaseLoader />
       </li>
-      <li v-else-if="store.shows.length === 0" class="p-2">No Results</li>
-      <li v-for="show in store.shows" :key="show.imdbID">
+      <li v-else-if="storeSearch.shows.length === 0" class="p-2">No Results</li>
+      <li v-for="show in storeSearch.shows" :key="show.imdbID">
         <router-link :to="'/title/' + show.imdbID" class="dropdown-item">
           <BaseCard
             :showTitle="show.Title"
@@ -48,14 +53,18 @@ onMounted(() => {
 .dropdown-menu {
   width: 100%;
   max-height: 90vh;
-  overflow-y: scroll;
+  overflow-y: auto;
+  background-color: var(--main-bg);
+}
+.dropdown-item {
+  transition: background-color 0.2s;
 }
 .dropdown-menu::-webkit-scrollbar-thumb {
-  background: grey;
+  background: var(--dw-scrollbar-color);
   border-radius: 10px;
 }
 .dropdown-menu::-webkit-scrollbar {
   width: 0.5vw;
-  background: #343a40;
+  background: var(--main-bg);
 }
 </style>
