@@ -3,6 +3,7 @@ import { filmDetails } from '@/store/filmDetails/filmDetails'
 import BaseGenre from '@/components/UI/BaseGenre.vue'
 import BaseInformation from '@/components/UI/BaseInformation.vue'
 import BaseStar from '@/components/icons/BaseStar.vue'
+import SuggestedFilms from '@/components/layouts/SuggestedFilms.vue'
 
 const store = filmDetails()
 </script>
@@ -17,10 +18,7 @@ const store = filmDetails()
           <p>{{ store.year }} {{ store.ratedGetter }} {{ store.runtimeGetter }}</p>
           <p class="d-flex gap-2" v-if="store.rateGetter">
             <BaseStar />
-            <span
-              ><span class="fw-bold">{{ store.rate }}</span
-              ><span>/10</span></span
-            >
+            <span class="fw-bold">{{ store.rate }}</span>
           </p>
           <img :src="store.poster" alt="" class="img-fluid rounded-1" />
           <ul
@@ -55,6 +53,7 @@ const store = filmDetails()
         </div>
       </div>
     </div>
+    <SuggestedFilms v-if="store.suggestedFilms.length > 0" />
   </section>
 </template>
 
@@ -81,9 +80,7 @@ article p {
 img {
   width: 300px;
 }
-.information {
-  /* margin-left: -20rem; */
-}
+
 @media screen and (max-width: 768px) {
   .information {
     margin-left: 0;

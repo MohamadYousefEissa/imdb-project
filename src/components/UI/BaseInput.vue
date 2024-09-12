@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps, defineEmits, ref } from 'vue'
+import BaseSearch from '../icons/BaseSearch.vue'
 const searchInput = ref()
 defineProps({
   placeholder: String
@@ -10,24 +11,40 @@ const search = (ev) => {
 }
 </script>
 <template>
-  <input
-    type="text"
-    name="search-input"
-    id="search-input"
-    :placeholder="placeholder"
-    autocomplete="off"
-    v-model="searchInput"
-    @input="search(searchInput)"
-  />
+  <div class="input-group">
+    <span class="input-group-text bg-white"><BaseSearch /></span>
+    <input
+      type="text"
+      name="search-input"
+      id="search-input"
+      :placeholder="placeholder"
+      autocomplete="off"
+      v-model="searchInput"
+      @input="search(searchInput)"
+    />
+  </div>
 </template>
 
 <style scoped>
 input {
   outline: 0;
   border: 0;
+  flex: 1;
   border-radius: 6px;
   padding: 10px 10px;
   font-size: 14px;
   background-color: var(--main-color);
+}
+span {
+  border: 1px solid transparent;
+  border-right: 0;
+}
+html[data-theme='light'] input {
+  border: 1px solid black;
+  border-left: 0;
+}
+html[data-theme='light'] span {
+  border: 1px solid black;
+  border-right: 0;
 }
 </style>

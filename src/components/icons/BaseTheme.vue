@@ -67,7 +67,7 @@ onMounted(() => {
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  background-color: #fff;
+  background-color: var(--body-bg);
   position: relative;
 }
 

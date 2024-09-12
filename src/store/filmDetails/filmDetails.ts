@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { searchStore } from '../searchStore/searchStore'
 import axios from 'axios'
 import state from './state'
+import router from '@/router/router'
 export const filmDetails = defineStore('film details', {
   state,
   actions: {
@@ -15,6 +16,7 @@ export const filmDetails = defineStore('film details', {
           }
         })
         .then((res) => {
+          this.suggestedFilms = [...searchStore().shows]
           this.isFetch = true
           this.title = res.data.Title
           this.year = res.data.Year
@@ -29,9 +31,22 @@ export const filmDetails = defineStore('film details', {
           this.stars = res.data.Actors
           this.rate = res.data.imdbRating
           searchStore().showMenu = false
-          const searchInput = document.querySelector('#search-input') as HTMLInputElement
-          searchInput.value = this.title as string
+          this.getSuggest()
+          document.title = this.title
         })
+    },
+    sliceMainFilm() {
+      const getIndex = this.suggestedFilms.findIndex((show: any) => {
+        return show.imdbID === router.currentRoute.value.path.replace('/title/', '')
+      })
+      this.suggestedFilms.splice(getIndex, 1)
+    },
+    async getSuggest() {
+      if (this.suggestedFilms.length === 0) {
+        await searchStore().fetchShow(router.currentRoute.value.query.search as string)
+        this.suggestedFilms = [...searchStore().shows]
+      }
+      this.sliceMainFilm()
     }
   },
   getters: {

@@ -7,9 +7,8 @@
 }
 
 html[data-theme='light'] {
-  --nav-bg: transparent;
+  --nav-bg: #fff;
   --body-bg: #f0f0f0;
-  --main-color: #fff;
   --main-bg: #fff;
   --dw-scrollbar-color: #dadada;
 }
@@ -18,7 +17,9 @@ body {
   height: 100vh;
   color: var(--main-color);
   background: var(--body-bg);
+  transition: background-color 0.2s;
 }
+
 a {
   text-decoration: none;
   color: var(--main-color);

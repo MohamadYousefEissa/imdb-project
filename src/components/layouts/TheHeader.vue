@@ -15,7 +15,7 @@ const search = (value) => {
 <template>
   <header>
     <nav>
-      <div class="container p-0">
+      <div class="container">
         <div class="row">
           <div class="col d-flex justify-content-between align-items-center">
             <RouterLink to="/">
@@ -41,5 +41,11 @@ const search = (value) => {
 nav {
   background: var(--nav-bg);
   padding: 1rem 0;
+}
+html[data-theme='light'] nav {
+  box-shadow: 0 0 10px grey;
+}
+html[data-theme='light'] nav a {
+  color: black;
 }
 </style>

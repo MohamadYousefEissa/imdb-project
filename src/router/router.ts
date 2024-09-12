@@ -22,6 +22,7 @@ const router = createRouter({
   ]
 })
 router.afterEach((to) => {
+  window.scrollTo(0, 0)
   if (to.params.id && to.matched[0].path === '/title/:id') {
     filmDetails().fetchFilm(to.params.id as string)
   }

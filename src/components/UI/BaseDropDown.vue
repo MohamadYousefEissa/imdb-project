@@ -1,22 +1,24 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { searchStore } from '@/store/searchStore/searchStore'
 import { themeStore } from '@/store/themeHandler'
 
-import BaseCard from './BaseCard.vue'
+import BaseDropDownItem from './BaseDropDownItem.vue'
 import BaseLoader from '../icons/BaseLoader.vue'
 const storeSearch = searchStore()
 const storeTheme = themeStore()
+const searchInputValue = ref('')
 onMounted(() => {
   const dropdownCont = document.getElementById('dd-cont')! as HTMLElement
   const searchInput = document.getElementById('search-input') as HTMLInputElement
+  searchInput.addEventListener('input', () => {
+    searchInputValue.value = searchInput.value
+  })
   document.body.addEventListener('click', (ev: Event) => {
-    if (ev.target) {
-      if (!dropdownCont.contains(ev.target)) {
-        storeSearch.showMenu = false
-      } else {
-        if (searchInput.value.length > 0 && !storeSearch.showMenu) storeSearch.showMenu = true
-      }
+    if (!dropdownCont.contains(ev.target as HTMLElement)) {
+      storeSearch.showMenu = false
+    } else {
+      if (searchInput.value.length > 0 && !storeSearch.showMenu) storeSearch.showMenu = true
     }
   })
 })
@@ -32,8 +34,11 @@ onMounted(() => {
       </li>
       <li v-else-if="storeSearch.shows.length === 0" class="p-2">No Results</li>
       <li v-for="show in storeSearch.shows" :key="show.imdbID">
-        <router-link :to="'/title/' + show.imdbID" class="dropdown-item">
-          <BaseCard
+        <router-link
+          :to="{ path: '/title/' + show.imdbID, query: { search: searchInputValue } }"
+          class="dropdown-item"
+        >
+          <BaseDropDownItem
             :showTitle="show.Title"
             :showYear="show.Year"
             :showPoster="show.Poster"
