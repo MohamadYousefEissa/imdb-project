@@ -1,17 +1,7 @@
-<script setup>
-import { defineProps } from 'vue'
-const props = defineProps({
-  names: {
-    type: String,
-    required: true
-  },
-  title: {
-    type: String,
-    required: true
-  }
-})
+<script setup lang="ts">
+defineProps<{ title: string; names: string }>()
 </script>
 <template>
   <hr />
-  <span class="fw-bold me-3">{{ props.title }}</span> <span>{{ props.names }}</span>
+  <span class="fw-bold me-3">{{ title }}</span> <span>{{ names }}</span>
 </template>

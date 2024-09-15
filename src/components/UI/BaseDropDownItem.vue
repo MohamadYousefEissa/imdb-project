@@ -1,16 +1,16 @@
-<script setup>
-import { defineProps } from 'vue'
-const props = defineProps(['showTitle', 'showYear', 'showPoster', 'showType'])
+<script setup lang="ts">
+defineProps(['showTitle', 'showYear', 'showPoster', 'showType'])
 </script>
+
 <template>
   <div class="d-flex gap-3">
     <div>
-      <img :src="props.showPoster" alt="" />
+      <img :src="showPoster" alt="" />
     </div>
     <div>
-      <h6>{{ props.showTitle }}</h6>
-      <p>{{ props.showYear }}</p>
-      <p>{{ props.showType }}</p>
+      <h6>{{ showTitle }}</h6>
+      <p>{{ showYear }}</p>
+      <p>{{ showType }}</p>
     </div>
   </div>
 </template>

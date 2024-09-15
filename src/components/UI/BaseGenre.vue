@@ -1,9 +1,8 @@
 <script setup>
-import { defineProps } from 'vue'
-const props = defineProps(['name'])
+defineProps(['name'])
 </script>
 <template>
-  <li>{{ props.name }}</li>
+  <li>{{ name }}</li>
 </template>
 
 <style scoped>

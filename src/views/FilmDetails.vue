@@ -13,8 +13,8 @@ const store = filmDetails()
     <div class="backdrop" :style="{ backgroundImage: `url(${store.poster})` }"></div>
     <div class="container" v-if="store.isFetch">
       <div class="row mt-5 align-items-center">
+        <h1 class="text-center text-md-start">{{ store.title }}</h1>
         <div class="col-12 col-lg-4 d-flex flex-column align-items-center align-items-md-start">
-          <h1>{{ store.title }}</h1>
           <p>{{ store.year }} {{ store.ratedGetter }} {{ store.runtimeGetter }}</p>
           <p class="d-flex gap-2" v-if="store.rateGetter">
             <BaseStar />
@@ -53,7 +53,7 @@ const store = filmDetails()
         </div>
       </div>
     </div>
-    <SuggestedFilms v-if="store.suggestedFilms.length > 0" />
+    <SuggestedFilms v-if="store.suggestedFilms.length > 0 && store.isFetch" />
   </section>
 </template>
 
@@ -68,9 +68,7 @@ const store = filmDetails()
   filter: blur(80px);
   z-index: -9;
 }
-h1 {
-  text-wrap: nowrap;
-}
+
 article {
   order: 1;
 }

@@ -1,12 +1,10 @@
-<script setup>
+<script setup lang="ts">
 import { defineProps, defineEmits, ref } from 'vue'
 import BaseSearch from '../icons/BaseSearch.vue'
 const searchInput = ref()
-defineProps({
-  placeholder: String
-})
+defineProps<{ placeholder: string }>()
 const emits = defineEmits(['input-event'])
-const search = (ev) => {
+const search = (ev: Event) => {
   emits('input-event', ev)
 }
 </script>

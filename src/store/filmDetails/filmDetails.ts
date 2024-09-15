@@ -43,8 +43,11 @@ export const filmDetails = defineStore('film details', {
     },
     async getSuggest() {
       if (this.suggestedFilms.length === 0) {
-        await searchStore().fetchShow(router.currentRoute.value.query.search as string)
-        this.suggestedFilms = [...searchStore().shows]
+        const query = router.currentRoute.value.query.search as string
+        if (query) {
+          await searchStore().fetchShow(query)
+          this.suggestedFilms = [...searchStore().shows]
+        }
       }
       this.sliceMainFilm()
     }
