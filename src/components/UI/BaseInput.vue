@@ -27,7 +27,7 @@ const search = (ev: Event) => {
 input {
   outline: 0;
   border: 0;
-  flex: 1;
+  width: 400px;
   border-radius: 6px;
   padding: 10px 10px;
   font-size: 14px;
@@ -44,5 +44,15 @@ html[data-theme='light'] input {
 html[data-theme='light'] span {
   border: 1px solid black;
   border-right: 0;
+}
+@media screen and (max-width: 480px) {
+  .input-group {
+    width: 90vw;
+    flex-wrap: nowrap;
+  }
+
+  input {
+    width: 100%;
+  }
 }
 </style>

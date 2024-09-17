@@ -7,7 +7,9 @@ export const homeShows = defineStore('home shows', {
     async fetchBundles() {
       await this.fetchShow('avengers')
       await this.fetchShow('batman')
-      await this.fetchShow('spider')
+      await this.fetchShow('spider-man')
+      await this.fetchShow('harry potter')
+      this.isFetch = true
     },
     async fetchShow(title: string) {
       try {
