@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps, defineEmits, ref } from 'vue'
+import { ref } from 'vue'
 import BaseSearch from '../icons/BaseSearch.vue'
 const searchInput = ref()
 defineProps<{ placeholder: string }>()

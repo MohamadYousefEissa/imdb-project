@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import state from './state'
 import axios from 'axios'
-export const searchStore = defineStore('search', {
+export const searchStore = defineStore('search store', {
   state,
   actions: {
     search(payload: { title: string }) {
