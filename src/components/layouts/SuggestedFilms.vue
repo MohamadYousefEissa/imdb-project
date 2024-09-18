@@ -36,3 +36,8 @@ onMounted(() => {
     </div>
   </section>
 </template>
+<style scoped>
+h1 {
+  color: var(--main-color);
+}
+</style>

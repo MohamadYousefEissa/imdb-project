@@ -1,10 +1,11 @@
-<script setup>
+<script setup lang="ts">
+import BaseLogo from '../icons/BaseLogo.vue'
 import BaseInput from '../UI/BaseInput.vue'
 import BaseDropDown from '../UI/BaseDropDown.vue'
 import BaseTheme from '../icons/BaseTheme.vue'
 import { searchStore } from '@/store/searchStore/searchStore'
 const store = searchStore()
-const search = (value) => {
+const search = (value: string) => {
   if (value.length > 0) store.search({ title: value })
   else {
     store.showMenu = false
@@ -16,23 +17,22 @@ const search = (value) => {
   <header>
     <nav>
       <div class="container">
-        <div class="row">
-          <div class="col d-flex justify-content-between align-items-center mb-2">
+        <div class="row gap-3">
+          <div class="col d-flex justify-content-between align-items-center">
             <RouterLink to="/">
-              <h1 class="m-0">IMdb</h1>
+              <BaseLogo />
             </RouterLink>
           </div>
           <div
-            class="col-12 col-md-10 col-lg-8 d-flex justify-content-start justify-content-md-end align-items-center gap-5"
-            id="dd-cont"
+            class="col-12 col-lg-8 d-flex flex-column flex-md-row justify-content-between justify-content-lg-end align-items-start align-items-md-center gap-4 gap-md-5"
           >
-            <div class="d-flex flex-column position-relative">
+            <div class="d-flex flex-column position-relative" id="dd-cont">
               <BaseInput :placeholder="'What do you think ...'" @input-event="search" />
               <div>
                 <BaseDropDown />
               </div>
             </div>
-            <BaseTheme class="d-none d-md-block" />
+            <BaseTheme class="d" />
           </div>
         </div>
       </div>

@@ -7,14 +7,21 @@
 }
 
 html[data-theme='light'] {
+  --main-color: #000;
   --nav-bg: #fff;
   --body-bg: #f0f0f0;
   --main-bg: #fff;
   --dw-scrollbar-color: #dadada;
 }
+@font-face {
+  font-family: 'inria';
+  src: url('../fonts/InriaSans-Regular.ttf') format('truetype');
+  font-display: swap;
+}
 
 body {
   height: 100vh;
+  font-family: 'inria';
   color: var(--main-color);
   background: var(--body-bg);
   transition: background-color 0.2s;

@@ -31,7 +31,7 @@ input {
   border-radius: 6px;
   padding: 10px 10px;
   font-size: 14px;
-  background-color: var(--main-color);
+  background-color: #fff;
 }
 span {
   border: 1px solid transparent;

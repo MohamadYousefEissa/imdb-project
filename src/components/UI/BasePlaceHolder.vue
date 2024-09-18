@@ -13,9 +13,7 @@
 p:first-of-type span {
   height: 260px;
 }
-html[data-theme='light'] span {
-  opacity: 1;
-}
+
 span {
   border-radius: 20px;
   opacity: 0.1;

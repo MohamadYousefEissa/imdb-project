@@ -1,22 +1,28 @@
 <template>
-  <swiper
-    :effect="'cards'"
-    :grabCursor="true"
-    :modules="modules"
-    class="mySwiper"
-    :autoplay="{ delay: 2000, pauseOnMouseEnter: true }"
-  >
-    <swiper-slide v-for="show in bundle" :key="show.imdbID">
-      <img :src="show.Poster" alt="" />
-      <div class="swiper-inner">
-        <div>
-          <h5>{{ show.Title }}</h5>
-          <h6>{{ show.Year }}</h6>
+  <div class="col">
+    <swiper
+      :effect="'cards'"
+      :grabCursor="true"
+      :modules="modules"
+      class="mySwiper"
+      :autoplay="{ delay: 2000, pauseOnMouseEnter: true }"
+    >
+      <swiper-slide v-for="show in bundle" :key="show.imdbID">
+        <img :src="show.Poster" alt="" />
+        <div class="swiper-inner">
+          <div>
+            <h5>{{ show.Title }}</h5>
+            <h6>{{ show.Year }}</h6>
+          </div>
         </div>
-      </div>
-      <router-link :to="`/title/${show.imdbID}?search=${bundle[0].searchName}`"></router-link>
-    </swiper-slide>
-  </swiper>
+        <router-link
+          :to="{ path: '/title/' + show.imdbID, query: { search: bundle[0].searchName } }"
+          aria-label="hidden"
+        ></router-link>
+      </swiper-slide>
+    </swiper>
+    <p class="text-center mt-3">{{ bundle[0].searchName }}</p>
+  </div>
 </template>
 
 <script setup lang="ts">

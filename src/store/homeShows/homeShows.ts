@@ -5,10 +5,9 @@ export const homeShows = defineStore('home shows', {
   state,
   actions: {
     async fetchBundles() {
-      await this.fetchShow('avengers')
-      await this.fetchShow('batman')
-      await this.fetchShow('spider-man')
-      await this.fetchShow('harry potter')
+      await this.fetchShow('Harry Potter')
+      await this.fetchShow('Avengers')
+      await this.fetchShow('Spider-Man')
       this.isFetch = true
     },
     async fetchShow(title: string) {
@@ -24,7 +23,8 @@ export const homeShows = defineStore('home shows', {
           this.bundles.push(req.data.Search)
         }
       } catch (err: any) {
-        throw new Error(err)
+        this.errorMessage = 'Netwrok Error, Check Your Internet'
+        throw new Error(err.message)
       }
     }
   }

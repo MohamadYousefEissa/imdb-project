@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import state from './state'
 import axios from 'axios'
+import { homeShows } from '../homeShows/homeShows'
 export const searchStore = defineStore('search store', {
   state,
   actions: {
@@ -28,9 +29,9 @@ export const searchStore = defineStore('search store', {
             this.shows = [...res.data.Search]
           }
         })
-        .catch((err) => {
-          console.log(err.message)
-          throw new Error(err)
+        .catch((err: Error) => {
+          homeShows().errorMessage = err.message
+          throw new Error(err.message)
         })
     }
   }

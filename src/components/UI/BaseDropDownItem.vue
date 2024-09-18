@@ -24,6 +24,7 @@ h6 {
   margin-top: 0.5rem;
   margin-bottom: 0;
   text-wrap: wrap;
+  font-weight: bold;
 }
 p {
   margin-bottom: 0;

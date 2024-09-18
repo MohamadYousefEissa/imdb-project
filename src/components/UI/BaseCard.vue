@@ -28,7 +28,7 @@ const slicedTitle = computed(() => {
 <style scoped>
 .card {
   width: 300px;
-  height: 530px;
+  height: 580px;
 }
 .card-body {
   padding-bottom: 1rem;
@@ -38,18 +38,15 @@ const slicedTitle = computed(() => {
 }
 img {
   width: 300px;
-  height: 400px;
+  height: 450px;
 }
 p {
   line-height: 1.2rem;
+  font-size: 14px;
   margin-bottom: 0;
-  color: grey;
+  color: #b0b0b0;
 }
 h5 {
   margin-bottom: 0;
-}
-span {
-  font-size: 14px;
-  color: grey;
 }
 </style>

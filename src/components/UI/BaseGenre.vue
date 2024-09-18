@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 defineProps(['name'])
 </script>
 <template>
@@ -7,7 +7,7 @@ defineProps(['name'])
 
 <style scoped>
 li {
-  border: 1px solid var(--main-color);
+  border: 1px solid #fff;
   border-radius: 18px;
   padding: 4px 20px;
 }
