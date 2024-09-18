@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { filmDetails } from '@/store/filmDetails/filmDetails'
-const HomePage = () => import('@/views/HomePage.vue')
-const FilmDetails = () => import('@/views/FilmDetails.vue')
+
+import FilmDetails from '@/views/FilmDetails.vue'
+import HomePage from '@/views/HomePage.vue'
 const NotFoundPage = () => import('@/views/NotFoundPage.vue')
 
 const router = createRouter({

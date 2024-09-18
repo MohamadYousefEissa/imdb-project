@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import BaseLogo from '../icons/BaseLogo.vue'
 import BaseInput from '../UI/BaseInput.vue'
-import BaseDropDown from '../UI/BaseDropDown.vue'
+import BaseDropDown from '../templates/BaseDropDown.vue'
 import BaseTheme from '../icons/BaseTheme.vue'
 import { searchStore } from '@/store/searchStore/searchStore'
 const store = searchStore()

@@ -3,12 +3,13 @@ import { filmDetails } from '@/store/filmDetails/filmDetails'
 import BaseGenre from '@/components/UI/BaseGenre.vue'
 import BaseInformation from '@/components/UI/BaseInformation.vue'
 import BaseStar from '@/components/icons/BaseStar.vue'
-import SuggestedFilms from '@/components/layouts/SuggestedFilms.vue'
+import SuggestedFilms from '@/components/templates/BaseSuggestedFilms.vue'
 import { computed } from 'vue'
+import BasePlaceHolderFilmDetails from '@/components/UI/BasePlaceHolderFilmDetails.vue'
 
 const backdropImage = computed(() => {
   if (store.poster !== 'N/A') return store.poster
-  return '/src/images/backdrop.webp'
+  return '/src/assets/images/backdrop.webp'
 })
 
 const store = filmDetails()
@@ -16,7 +17,11 @@ const store = filmDetails()
 
 <template>
   <section>
-    <div class="backdrop" :style="{ backgroundImage: `url(${backdropImage})` }"></div>
+    <div
+      class="backdrop"
+      :style="{ backgroundImage: `url(${backdropImage})` }"
+      v-if="store.isFetch"
+    ></div>
     <div class="container" v-if="store.isFetch">
       <div class="row mt-5 align-items-center">
         <h1 class="text-center text-md-start">{{ store.title }}</h1>
@@ -26,7 +31,7 @@ const store = filmDetails()
             <BaseStar />
             <span class="fw-bold">{{ store.rate }}</span>
           </p>
-          <img :src="store.poster" alt="" class="img-fluid rounded-2" />
+          <img :src="store.poster" alt="" class="rounded-2" />
           <ul
             class="d-flex justify-content-center justify-content-md-start gap-2 p-0 mt-3 flex-wrap"
           >
@@ -59,6 +64,7 @@ const store = filmDetails()
         </div>
       </div>
     </div>
+    <BasePlaceHolderFilmDetails v-else />
     <SuggestedFilms v-if="store.suggestedFilms.length > 0 && store.isFetch" />
   </section>
 </template>
@@ -74,6 +80,7 @@ const store = filmDetails()
   filter: blur(80px);
   z-index: -9;
 }
+
 h1 {
   font-weight: bold;
 }

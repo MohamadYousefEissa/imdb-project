@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { homeShows } from '@/store/homeShows/homeShows'
 import { searchStore } from '@/store/searchStore/searchStore'
-import BaseCardSlider from '@/components/UI/BaseCardSlider.vue'
-import BaseSlider from '@/components/UI/BaseSlider.vue'
+import BaseCardSlider from '@/components/templates/BaseCardSlider.vue'
+import BaseSlider from '@/components/templates/BaseSlider.vue'
 import BasePlaceHolder from '@/components/UI/BasePlaceHolder.vue'
 document.title = 'Imdb clone'
 const storeHome = homeShows()

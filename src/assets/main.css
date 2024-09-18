@@ -15,7 +15,7 @@ html[data-theme='light'] {
 }
 @font-face {
   font-family: 'inria';
-  src: url('../fonts/InriaSans-Regular.ttf') format('truetype');
+  src: url('./fonts/InriaSans-Regular.ttf') format('truetype');
   font-display: swap;
 }
 

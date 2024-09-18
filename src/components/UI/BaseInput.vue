@@ -17,6 +17,7 @@ const search = (ev: Event) => {
       id="search-input"
       :placeholder="placeholder"
       autocomplete="off"
+      maxlength="60"
       v-model="searchInput"
       @input="search(searchInput)"
     />

@@ -1,3 +1,16 @@
+<script setup lang="ts">
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { EffectCards, Autoplay } from 'swiper/modules'
+
+import 'swiper/css'
+import 'swiper/css/effect-cards'
+import 'swiper/css/autoplay'
+const modules = [EffectCards, Autoplay]
+defineProps<{
+  bundle: { Poster: string; Title: string; Year: string; imdbID: string; searchName: string }[]
+}>()
+</script>
+
 <template>
   <div class="col">
     <swiper
@@ -24,19 +37,6 @@
     <p class="text-center mt-3">{{ bundle[0].searchName }}</p>
   </div>
 </template>
-
-<script setup lang="ts">
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import { EffectCards, Autoplay } from 'swiper/modules'
-
-import 'swiper/css'
-import 'swiper/css/effect-cards'
-import 'swiper/css/autoplay'
-const modules = [EffectCards, Autoplay]
-defineProps<{
-  bundle: { Poster: string; Title: string; Year: string; imdbID: string; searchName: string }[]
-}>()
-</script>
 
 <style scoped>
 img {

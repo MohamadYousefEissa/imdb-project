@@ -3,8 +3,9 @@ import { onMounted, ref } from 'vue'
 import { searchStore } from '@/store/searchStore/searchStore'
 import { themeStore } from '@/store/themeHandler'
 
-import BaseDropDownItem from './BaseDropDownItem.vue'
+import BaseDropDownItem from '../UI/BaseDropDownItem.vue'
 import BaseLoader from '../icons/BaseLoader.vue'
+
 const storeSearch = searchStore()
 const storeTheme = themeStore()
 const searchInputValue = ref('')

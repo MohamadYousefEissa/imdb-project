@@ -1,3 +1,16 @@
+<script setup lang="ts">
+import { homeShows } from '@/store/homeShows/homeShows'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import BaseCard from '../UI/BaseCard.vue'
+import 'swiper/css'
+import 'swiper/css/free-mode'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
+
+import { FreeMode, Navigation } from 'swiper/modules'
+const modules = [FreeMode, Navigation]
+</script>
+
 <template>
   <swiper
     :breakpoints="{
@@ -19,18 +32,6 @@
     </swiper-slide>
   </swiper>
 </template>
-<script setup lang="ts">
-import { homeShows } from '@/store/homeShows/homeShows'
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import BaseCard from './BaseCard.vue'
-import 'swiper/css'
-import 'swiper/css/free-mode'
-import 'swiper/css/pagination'
-import 'swiper/css/navigation'
-
-import { FreeMode, Navigation } from 'swiper/modules'
-const modules = [FreeMode, Navigation]
-</script>
 
 <style scoped>
 .swiper {

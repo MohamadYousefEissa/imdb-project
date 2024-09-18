@@ -1,28 +1,83 @@
 <template>
-  <div class="spinner"></div>
+  <div class="leap-frog">
+    <div class="leap-frog__dot"></div>
+    <div class="leap-frog__dot"></div>
+    <div class="leap-frog__dot"></div>
+  </div>
 </template>
 
 <style scoped>
-.spinner {
-  width: 11.2px;
-  height: 11.2px;
-  border-radius: 11.2px;
-  box-shadow:
-    28px 0px 0 0 rgba(255, 255, 255, 0.2),
-    22.7px 16.5px 0 0 rgba(255, 255, 255, 0.4),
-    8.68px 26.6px 0 0 rgba(255, 255, 255, 0.6),
-    -8.68px 26.6px 0 0 rgba(255, 255, 255, 0.8),
-    -22.7px 16.5px 0 0 #ffffff;
-
-  animation: spinner-b87k6z 0.8s infinite linear;
+.leap-frog {
+  --uib-size: 40px;
+  --uib-speed: 2s;
+  --uib-color: var(--main-color);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: var(--uib-size);
+  height: var(--uib-size);
 }
 
-@keyframes spinner-b87k6z {
-  to {
-    transform: rotate(360deg);
+.leap-frog__dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+}
+
+.leap-frog__dot::before {
+  content: '';
+  display: block;
+  height: calc(var(--uib-size) * 0.22);
+  width: calc(var(--uib-size) * 0.22);
+  border-radius: 50%;
+  background-color: var(--uib-color);
+  will-change: transform;
+}
+
+.leap-frog__dot:nth-child(1) {
+  animation: leapFrog var(--uib-speed) ease infinite;
+}
+
+.leap-frog__dot:nth-child(2) {
+  transform: translateX(calc(var(--uib-size) * 0.4));
+  animation: leapFrog var(--uib-speed) ease calc(var(--uib-speed) / -1.5) infinite;
+}
+
+.leap-frog__dot:nth-child(3) {
+  transform: translateX(calc(var(--uib-size) * 0.8)) rotate(0deg);
+  animation: leapFrog var(--uib-speed) ease calc(var(--uib-speed) / -3) infinite;
+}
+
+@keyframes leapFrog {
+  0% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 0.4;
   }
-}
-html[data-theme='light'] .spinner {
-  filter: invert(1) brightness(0);
+
+  33.333% {
+    transform: translateX(0) rotate(180deg);
+    opacity: 0.7;
+  }
+
+  66.666% {
+    transform: translateX(calc(var(--uib-size) * -0.4)) rotate(180deg);
+    opacity: 1;
+  }
+
+  99.999% {
+    transform: translateX(calc(var(--uib-size) * -0.8)) rotate(180deg);
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 0.4;
+    transform: translateX(0) rotate(0deg);
+  }
 }
 </style>

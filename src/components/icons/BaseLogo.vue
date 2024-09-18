@@ -2,8 +2,8 @@
   <svg
     class="ipc-logo drawer-logo"
     xmlns="http://www.w3.org/2000/svg"
-    width="98"
-    height="56"
+    width="90"
+    height="50"
     viewBox="0 0 64 32"
     version="1.1"
     aria-label="hidden"
