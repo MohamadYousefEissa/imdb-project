@@ -12,7 +12,7 @@ export const homeShows = defineStore('home shows', {
     },
     async fetchShow(title: string) {
       try {
-        const req = await axios.get('http://www.omdbapi.com/', {
+        const req = await axios.get('https://www.omdbapi.com/', {
           params: {
             apikey: '9b1e74d6',
             s: title.trim()

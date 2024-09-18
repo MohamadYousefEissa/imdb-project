@@ -9,7 +9,7 @@ export const filmDetails = defineStore('film details', {
     async fetchFilm(id: string) {
       this.isFetch = false
       await axios
-        .get('http://www.omdbapi.com/', {
+        .get('https://www.omdbapi.com/', {
           params: {
             apikey: '9b1e74d6',
             i: id
