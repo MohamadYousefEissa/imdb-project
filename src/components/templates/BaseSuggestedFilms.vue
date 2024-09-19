@@ -14,7 +14,7 @@ onMounted(() => {
 <template>
   <section>
     <div class="container mt-5 pt-5">
-      <h1 class="mb-5">You May Like</h1>
+      <h1 class="mb-5 fw-bold">You May Like</h1>
       <div
         class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xxl-4 row-gap-3 justify-content-center"
       >

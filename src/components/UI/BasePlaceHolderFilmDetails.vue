@@ -13,9 +13,9 @@
       <span class="placeholder col-12 col-md-6 col-lg-4 col-xl-3" id="large-ph"></span>
     </p>
     <p class="placeholder-wave px-5">
-      <span class="placeholder col-3 col-md-1 ms-1 rounded-5"></span>
-      <span class="placeholder col-3 col-md-1 ms-1 rounded-5"></span>
-      <span class="placeholder col-3 col-md-1 ms-1 rounded-5"></span>
+      <span class="placeholder col-3 col-md-2 col-lg-1 ms-1 rounded-5 py-3"></span>
+      <span class="placeholder col-3 col-md-2 col-lg-1 ms-1 rounded-5 py-3"></span>
+      <span class="placeholder col-3 col-md-2 col-lg-1 ms-1 rounded-5 py-3"></span>
     </p>
   </div>
 </template>
