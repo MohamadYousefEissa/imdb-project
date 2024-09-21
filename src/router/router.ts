@@ -20,10 +20,12 @@ const router = createRouter({
       path: '/:notFound(.*)',
       component: NotFoundPage
     }
-  ]
+  ],
+  scrollBehavior() {
+    return { top: 0, left: 0, behavior: 'instant' }
+  }
 })
 router.beforeEach((to) => {
-  window.scrollTo(0, 0)
   if (to.params.id) {
     filmDetails().fetchFilm(to.params.id as string)
   }

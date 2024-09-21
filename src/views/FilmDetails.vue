@@ -99,16 +99,13 @@ img {
   width: 300px;
   height: 450px;
 }
-.fade-enter-from,
-.fade-leave-to {
+.fade-enter-from {
   opacity: 0;
 }
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s;
+.fade-enter-active {
+  transition: opacity 1s;
 }
-.fade-enter-to,
-.fade-leave-from {
+.fade-enter-to {
   opacity: 1;
 }
 @media screen and (max-width: 768px) {

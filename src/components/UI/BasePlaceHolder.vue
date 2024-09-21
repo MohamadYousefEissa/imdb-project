@@ -3,8 +3,8 @@
     <p class="placeholder-wave">
       <span class="placeholder col-12"></span>
     </p>
-    <p class="placeholder-wave">
-      <span class="placeholder col-12"></span><span class="placeholder col-12"></span>
+    <p class="placeholder-wave text-center">
+      <span class="placeholder col-5"></span>
     </p>
   </div>
 </template>

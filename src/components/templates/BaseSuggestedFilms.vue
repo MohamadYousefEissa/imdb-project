@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { filmDetails } from '@/store/filmDetails/filmDetails'
-import router from '@/router/router'
+import { useRoute } from 'vue-router'
 import BaseCard from '../UI/BaseCard.vue'
 const store = filmDetails()
 const searchInputValue = ref('')
 
 onMounted(() => {
-  searchInputValue.value = router.currentRoute.value.query.search as string
+  searchInputValue.value = useRoute().query.search as string
 })
 </script>
 
