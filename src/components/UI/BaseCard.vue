@@ -1,13 +1,6 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { themeStore } from '@/store/themeHandler'
-const props = defineProps<{ title: string; poster: string; year: string; type: string }>()
-const slicedTitle = computed(() => {
-  let str = ''
-  if (props.title.length > 50) str = props.title.slice(0, 50) + '...'
-  else str = props.title
-  return str
-})
+defineProps<{ title: string; poster: string; year: string; type: string }>()
 </script>
 
 <template>
@@ -15,7 +8,7 @@ const slicedTitle = computed(() => {
     <img :src="poster" class="card-img-top" alt="" />
     <div class="card-body">
       <h5 class="card-title">
-        {{ slicedTitle }}
+        {{ title }}
       </h5>
       <div>
         <p>{{ year }}</p>
@@ -48,5 +41,11 @@ p {
 }
 h5 {
   margin-bottom: 0;
+  text-wrap: balance;
+  overflow: hidden;
+  line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 </style>

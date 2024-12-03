@@ -48,7 +48,7 @@ import BaseTV from '../icons/BaseTV.vue'
       </div>
     </div>
     <p class="text-center pb-1" id="copy-right">
-      Powered by Mohamad Yousef Eissa © {{ new Date().getFullYear() }} | All Rights Reserved
+      Powered by Mohamad Yousef Eissa © 2024 | All Rights Reserved
     </p>
   </footer>
 </template>
